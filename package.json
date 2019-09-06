@@ -1,0 +1,100 @@
+{
+	"name": "cts-listener",
+	"version": "3.0.0",
+	"description": "Nodejs sample that uses node-rdkafka to interact with MessageHub",
+	"main": "app.js",
+	"engines": {
+		"node": "12.10.0",
+		"npm": "6.10.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/VanessaEly/example-listener"
+	},
+	"scripts": {
+        "start": "nodemon --exec babel-node ./app.js",
+		"test": "mocha ./test/tests.js",
+		"test-coverage": "nyc npm test",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix",
+		"check-deps": "nsp check",
+		"test-with-coverage": "nyc npm test && cat ./docs/test/lcov.info | codacy-coverage -e https://codacy.whitewater.ibm.com:16006 --accountToken iRfnh9Z4rJIm5GnOicAJ --username cbd --projectName 'cts-listener' && rm -rf ./coverage",
+		"build-dev": "gulp build -w",
+		"build-all-dev": "gulp build-all",
+		"build-all-prod": "gulp build-all --prod"
+	},
+	"author": "IBM",
+	"license": "Apache-2.0",
+	"maintainers": [
+		{
+			"name": "Vanessa Ely",
+			"email": "vely@br.ibm.com"
+		}
+	],
+	"keywords": [
+		"ibm",
+		"message",
+		"hub",
+		"messagehub",
+		"kafka",
+		"apache",
+		"bluemix",
+		"cloud",
+		"node-rdkafka"
+	],
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"dotenv": "^8.1.0",
+		"ejs": "^2.7.1",
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.0",
+		"@babel/node": "^7.6.0",
+		"@babel/preset-env": "^7.6.0",
+		"eslint": "^6.3.0",
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-plugin-import": "^2.18.2",
+		"nodemon": "^1.19.2"
+	},
+	"browser": {
+		"vue": "vue/dist/vue.common.js"
+	},
+	"nyc": {
+		"cache": true,
+		"report-dir": "./docs/test",
+		"reporter": [
+			"lcov",
+			"text-summary"
+		],
+		"per-file": false,
+		"lines": 65,
+		"statements": 65,
+		"functions": 60,
+		"branches": 55,
+		"watermarks": {
+			"lines": [
+				65,
+				70
+			],
+			"functions": [
+				60,
+				70
+			],
+			"branches": [
+				55,
+				70
+			],
+			"statements": [
+				65,
+				70
+			]
+		},
+		"exclude": [
+			"/client/**/service-worker-registration.js",
+			"/client/**/dist/js/*.js",
+			"gulpfile.js",
+			"node_modules"
+		]
+	}
+}
