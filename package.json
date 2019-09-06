@@ -13,15 +13,8 @@
 	},
 	"scripts": {
         "start": "nodemon --exec babel-node ./app.js",
-		"test": "mocha ./test/tests.js",
-		"test-coverage": "nyc npm test",
         "lint": "eslint .",
-        "lint-fix": "eslint . --fix",
-		"check-deps": "nsp check",
-		"test-with-coverage": "nyc npm test && cat ./docs/test/lcov.info | codacy-coverage -e https://codacy.whitewater.ibm.com:16006 --accountToken iRfnh9Z4rJIm5GnOicAJ --username cbd --projectName 'cts-listener' && rm -rf ./coverage",
-		"build-dev": "gulp build -w",
-		"build-all-dev": "gulp build-all",
-		"build-all-prod": "gulp build-all --prod"
+        "lint-fix": "eslint . --fix"
 	},
 	"author": "IBM",
 	"license": "Apache-2.0",
