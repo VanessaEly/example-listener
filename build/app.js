@@ -16,7 +16,7 @@ var app = (0, _express["default"])();
 
 var server = _http["default"].createServer(app);
 
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3001;
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
   extended: true
