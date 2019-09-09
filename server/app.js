@@ -6,7 +6,7 @@ import 'dotenv/config';
 
 const app = express();
 const server = http.createServer(app);
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
