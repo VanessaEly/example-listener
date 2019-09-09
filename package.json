@@ -12,9 +12,11 @@
 		"url": "https://github.com/VanessaEly/example-listener"
 	},
 	"scripts": {
-        "start": "nodemon --exec babel-node ./app.js",
-        "lint": "eslint .",
-        "lint-fix": "eslint . --fix"
+		"start": "babel-node server/app.js",
+		"start-dev": "nodemon --exec 'npm run lint && babel-node server/app.js'",
+		"build": "babel ./server/ -d dist/server",
+		"lint": "eslint .",
+		"lint-fix": "eslint . --fix"
 	},
 	"author": "IBM",
 	"license": "Apache-2.0",

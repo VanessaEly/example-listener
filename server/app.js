@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.engine('html', ejs.renderFile);
-app.set('views', `${__dirname}/client`);
+app.set('views', `${__dirname}/../client`);
 
 app.use(express.static(`${__dirname}/client`));
 
